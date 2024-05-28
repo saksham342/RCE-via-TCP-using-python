@@ -1,2 +1,6 @@
 # RCE-via-TCP-using-python
 These Python scripts enable remote command execution over a TCP connection on localhost:5555.
+
+These two Python scripts demonstrate a simple client-server architecture for remote command execution. The server script sets up a TCP server that listens on `localhost` at port `5555`. It waits for an incoming connection, and once a client connects, it enters a loop to receive commands from the client. Upon receiving a command, the server executes it on the local machine using the `os.popen` function, captures the output, and sends this output back to the client. The loop continues until the server receives the command "exit," at which point it closes the connection and stops the server.
+
+The client script connects to the server at `localhost` on port `5555` and enters a loop to send commands to the server. The user is prompted to enter a command, which is then sent to the server. The client receives the command output from the server and prints it to the console. This loop also continues until the user types "exit," after which the client closes the connection and terminates. This setup allows remote command execution and output retrieval, making it a simple yet powerful demonstration of socket programming and inter-process communication in Python.
